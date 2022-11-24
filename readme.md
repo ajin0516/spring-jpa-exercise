@@ -11,3 +11,13 @@ ex) http://localhost:8080/api/v1/books
 
 
 ex) http://ec2-43-201-44-250.ap-northeast-2.compute.amazonaws.com:8081/api/v1/books
+
+
+리뷰 등록 기능
+POST /api/v1/hospitals/{id}/reviews
+ex) http://localhost:8080/api/v1/hospitals/{id}/reviews
+
+리뷰 조회 기능
+GET /api/v1/hospitals/reviews/{id}
+ex) http://localhost:8080/api/v1/hospitals/reviews/{id}
+
