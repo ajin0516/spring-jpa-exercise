@@ -18,7 +18,7 @@ import java.util.List;
 public class Hospital {
 
     @Id
-    private Integer id;
+    private Long id;
     private String roadNameAddress;
     private String hospitalName;
 

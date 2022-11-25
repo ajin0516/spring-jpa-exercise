@@ -18,7 +18,7 @@ public class HospitalService {
         this.hospitalRepository = hospitalRepository;
     }
 
-    public HospitalItemResponse findById(Integer hospitalId) {
+    public HospitalItemResponse findById(Long hospitalId) {
         Optional<Hospital> optionalHospital = hospitalRepository.findById(hospitalId);
         HospitalItemResponse hospitalItemResponse = Hospital.ofSingle(optionalHospital.get());
         return hospitalItemResponse;

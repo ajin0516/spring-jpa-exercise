@@ -14,18 +14,18 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/hospitals")
-public class HospitaRestlController {
+public class HospitalRestController {
 
     private final HospitalService hospitalService;
     private final ReviewService reviewService;
 
-    public HospitaRestlController(HospitalService hospitalService, ReviewService reviewService) {
+    public HospitalRestController(HospitalService hospitalService, ReviewService reviewService) {
         this.hospitalService = hospitalService;
         this.reviewService = reviewService;
     }
 
     @PostMapping("/{id}/reviews")
-    public ResponseEntity<ReviewCreateResponse> get(@PathVariable Integer id,
+    public ResponseEntity<ReviewCreateResponse> get(@PathVariable Long id,
                                                     @RequestBody ReviewCreateRequest reviewCreateRequest) {
         return ResponseEntity.ok().body(reviewService.add(reviewCreateRequest));
     }
@@ -35,8 +35,4 @@ public class HospitaRestlController {
         return ResponseEntity.ok().body(new ArrayList<>());
     }
 
-    @GetMapping("reviews/{id}")
-    public ResponseEntity<ReviewCreateResponse> findReview(@PathVariable Long id) {
-        return ResponseEntity.ok().body(reviewService.getReview(id));
-    }
 }

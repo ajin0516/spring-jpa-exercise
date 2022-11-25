@@ -1,6 +1,6 @@
 package com.jpa.exercise.domain;
 
-import com.jpa.exercise.domain.dto.ReviewResponse;
+import com.jpa.exercise.domain.dto.ReviewCreateResponse;
 import lombok.*;
 
 import javax.persistence.*;
@@ -26,13 +26,4 @@ public class Review {
     @JoinColumn(name = "hospital_id")
     private Hospital hospital;
 
-
-
-    public static ReviewResponse getReviewResponse(Review review) {
-        return ReviewResponse.builder()
-                .id(review.getId())
-                .title(review.getTitle())
-                .content(review.getContent())
-                .build();
-    }
 }
