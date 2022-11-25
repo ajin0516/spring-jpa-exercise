@@ -21,3 +21,6 @@ ex) http://localhost:8080/api/v1/hospitals/{id}/reviews
 GET /api/v1/hospitals/reviews/{id}
 ex) http://localhost:8080/api/v1/hospitals/reviews/{id}
 
+병원 조회 시 리뷰 같이 조회
+GET /api/v1/reviews/{id}/reviews
+

@@ -12,6 +12,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @RestController
 @RequestMapping("api/v1/reviews")
 @Slf4j
@@ -24,14 +27,21 @@ public class ReviewController {
     @GetMapping("{id}")
     public ResponseEntity<ReviewReadResponse> get(@PathVariable Long id) {
         Review review = reviewService.getReview(id);
+
         ReviewReadResponse response = ReviewReadResponse.builder()
                 .id(review.getId())
                 .title(review.getTitle())
                 .content(review.getContent())
                 .patientName(review.getPatientName())
                 .hospitalName(review.getHospital().getHospitalName())
+                .message("id= " + review.getId() + "번의 리뷰 조회 성공")
                 .build();
         return ResponseEntity.ok().body(response);
+    }
+
+    @GetMapping("{hospitalId}/reviews")
+    public ResponseEntity<List<ReviewReadResponse>> reviews(@PathVariable Long hospitalId) {
+        return ResponseEntity.ok().body(reviewService.findAllByHospitalId(hospitalId));
     }
 
 }

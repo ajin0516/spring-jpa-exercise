@@ -11,10 +11,11 @@ import lombok.NoArgsConstructor;
 @Getter
 public class ReviewReadResponse {
     private Long id;
+    private String hospitalName;
     private String title;
     private String content;
     private String patientName;
-    private String hospitalName;
+    private String message;
 
 }
 
